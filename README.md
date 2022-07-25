@@ -17,6 +17,12 @@ And:
 > speaker-test -f1000 -t sine -c 2
 to make a sine wave on both channels (in sequence)
 
+The pins on the 40 pin header are: 
+
+PA19: BCK, PA18: LRCLK, PA21: SDATA In (from ADC), PA20: SDATA Out (to DAC)
+
+And as you might already know you can do S/PDIF transmit on PA17, though I haven't tried it myself.
+
 ## cs4272.py
 Very basic SPI configuration script for a CS4272 codec, add the Armbian SPI overlay and set in armbianEnv.txt:
 param_spidev_spi_bus=0 to activate SPI0 with CS0
