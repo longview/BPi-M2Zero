@@ -6,6 +6,9 @@ Linux version 5.10.60-sunxi
 
 This code is based on https://github.com/AkiyukiOkayasu/RaspberryPi_I2S_Slave
 
+# sudo armbian-add-overlay sun8i-h3-i2s0-codec.dts
+to install
+
 */
 /dts-v1/;
 /plugin/;
