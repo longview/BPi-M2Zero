@@ -8,6 +8,15 @@ Note that I found upgrading to newer kernels broke several things including wire
 It's a (works for me) full duplex stereo I2S slave overlay suitable for a 48 kHz codec chip.
 It's your job to configure it properly using some type of interface (I2C, SPI, pin strap).
 
+Can be tested using e.g. 
+> alsaloop -C hw:0,1 -P hw:0,0 -t 1000000 -r 48000
+
+to loopback from ADC to DAC
+
+And:
+> speaker-test -f1000 -t sine -c 2
+to make a sine wave on both channels (in sequence)
+
 ## cs4272.py
 Very basic SPI configuration script for a CS4272 codec, add the Armbian SPI overlay and set in armbianEnv.txt:
 param_spidev_spi_bus=0 to activate SPI0 with CS0
