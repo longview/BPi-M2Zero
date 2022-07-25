@@ -30,5 +30,9 @@ param_spidev_spi_bus=0 to activate SPI0 with CS0
 ## pps_pa7.dts
 This is just a modified DTS for 1PPS input on the M2Z, it uses PA7 (header pin 29)
 
+Note that the M2Z is not a great NTP server even with Chrony, and the kernel I note above doesn't seem to be very good for timekeeping either. I found I could achieve around 2-3 µs standard deviation on the 1PPS with a low cost VK2828 GPS receiver.
+
+If you want a good NTP server with 1PPS, I suggest the Pi CM4, which apparently does hardware timestamping these days!
+
 ## Other notes
 Also useful to enable I2C0 and UART2 & 3 overlays. Note that I2C1 can not be used with the above I2S interface, since the pins overlap.
