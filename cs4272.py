@@ -15,15 +15,17 @@ os.system("gpio write 5 1")
 to_send = [0x20, 0x07, 0x03]
 retval = spi.xfer3(to_send)
 print(retval)
-          # start, auto increment zero, volume A is -26 dB, volume B is -21 dB
-to_send = [0x20, 0x81, 0b10101001, 0b1000110, 0b00111001, 26, 21, 0b00010000]
+# start, auto increment from register 1
+# 1: rates set for 48 kHz @ 12.288 MHz, 24 bit I2S DAC data
+# 2: no de-emphasis etc.
+# 3: soft ramp, ATAPI mode aR + bL (swapped)
+# 4: volume A is -26 dB
+# 5: volume B is -21 dB
+# 6: ADC dither 16-bit (most software only uses 16 bit data), I2S format, freeze software HPF's to avoid LF phase distortion
+to_send = [0x20, 0x81, 0b10101001, 0b1000110, 0b00110110, 26, 21, 0b0011011]
 retval = spi.xfer3(to_send)
 print(retval)
 
-# implement channel swap by default to fix up the swapping done in hardware
-to_send = [0x20, 0x03, 0b00110110]
-retval = spi.xfer3(to_send)
-print(retval)
 # following config, clear PDN
 to_send = [0x20, 0x07, 0x02]
 retval = spi.xfer3(to_send)
