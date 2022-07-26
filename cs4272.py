@@ -15,7 +15,7 @@ os.system("gpio write 5 1")
 to_send = [0x20, 0x07, 0x03]
 retval = spi.xfer3(to_send)
 print(retval)
-          # start, auto increment zero,
+          # start, auto increment zero, volume A is -26 dB, volume B is -21 dB
 to_send = [0x20, 0x81, 0b10101001, 0b1000110, 0b00111001, 26, 21, 0b00010000]
 retval = spi.xfer3(to_send)
 print(retval)
