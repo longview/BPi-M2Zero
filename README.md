@@ -8,6 +8,8 @@ Note that I found upgrading to newer kernels broke several things including wire
 It's a (works for me) full duplex stereo I2S slave overlay suitable for a 48 kHz codec chip.
 It's your job to configure it properly using some type of interface (I2C, SPI, pin strap).
 
+There is something off about the left/right channels, adding frame-inversion to the simple-audio-card section is supposed to fix it, but I solve this by setting the codec mixing mode to swap.
+
 Can be tested using e.g. 
 > alsaloop -C hw:0,1 -P hw:0,0 -t 1000000 -r 48000
 
