@@ -22,6 +22,8 @@ print(retval)
 # 4: volume A is -26 dB
 # 5: volume B is -21 dB
 # 6: ADC dither 16-bit (most software only uses 16 bit data), I2S format, freeze software HPF's to avoid LF phase distortion
+
+# disabling the HPF may introduce DC offsets to the system, but this not a major issue for most software.
 to_send = [0x20, 0x81, 0b10101001, 0b1000110, 0b00110110, 26, 21, 0b0011011]
 retval = spi.xfer3(to_send)
 print(retval)
