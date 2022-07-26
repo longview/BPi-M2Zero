@@ -29,6 +29,10 @@ And as you might already know you can do S/PDIF transmit on PA17, though I haven
 Very basic SPI configuration script for a CS4272 codec, add the Armbian SPI overlay and set in armbianEnv.txt:
 param_spidev_spi_bus=0 to activate SPI0 with CS0
 
+This file also configures some specific DAC levels to match my specific hardware, and configures a channel swap for the codec since the H3 seems to do this incorrectly?
+
+See also the swapchannel script which changes the codec ATAPI mode to swap left/right, and the loopback file which enables digital loopback with swapped left/right for use in testing.
+
 ## pps_pa7.dts
 This is just a modified DTS for 1PPS input on the M2Z, it uses PA7 (header pin 29)
 
