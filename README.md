@@ -36,7 +36,7 @@ See also the swapchannel script which changes the codec ATAPI mode to swap left/
 ## pps_pa7.dts
 This is just a modified DTS for 1PPS input on the M2Z, it uses PA7 (header pin 29)
 
-Note that the M2Z is not a great NTP server even with Chrony, and the kernel I note above doesn't seem to be very good for timekeeping either. I found I could achieve around 2-3 µs standard deviation on the 1PPS with a low cost VK2828 GPS receiver.
+Note that the M2Z is not a great NTP server even with Chrony, and the kernel I note above doesn't seem to be very good for timekeeping either (no kpps module). I found I could achieve around 2-3 µs standard deviation on the 1PPS with a low cost VK2828 GPS receiver. Note that clock scaling was active for this test, and this will likely degrade performance.
 
 If you want a good NTP server with 1PPS, I suggest the Pi CM4, which apparently does hardware timestamping these days!
 
