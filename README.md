@@ -45,20 +45,18 @@ Also useful to enable I2C0 and UART2 & 3 overlays. Note that I2C1 can not be use
 
 ## Wi-Fi
 I couldn't get Wi-Fi working initially. I eventually found this post https://askubuntu.com/questions/1028578/nmcli-the-wifi-network-could-not-be-found:
-> nmcli connection edit SSID
-
->set connection.metered no
-
->set 802-11-wireless.band bg
-
->set 802-11-wireless-security.key-mgmt wpa-psk
-
->save
-
->quit
-
+```
+# nmcli connection edit SSID
+```
+```
+set connection.metered no
+set 802-11-wireless.band bg
+set 802-11-wireless-security.key-mgmt wpa-psk
+save
+quit
+```
 Then running
-
-> sudo nmcli dev wifi connect "SSID" password "PASSWORD"
-
+```
+sudo nmcli dev wifi connect "SSID" password "PASSWORD"
+```
 And this worked, thanks you AskUbuntu poster dirdi
